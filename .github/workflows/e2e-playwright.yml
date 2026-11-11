@@ -3,18 +3,19 @@ name: Playwright
 on:
   pull_request:
     branches:
-      - webinar/main
+      - main
   push:
     branches:
-      - webinar/main
+      - main
 
 permissions:
   contents: read
   id-token: write # used by the Vercel deployment action
 
 jobs:
-  e2e:
-    if: github.repository == 'endformdev/playwright-tutorial'
+  playwright:
+    name: Playwright
+    if: github.repository == 'endformdev/webinar-playwright-example'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -39,9 +40,9 @@ jobs:
       - name: Wait for Vercel deployment
         uses: endformdev/actions/run-with-vercel-deployment@main
         with:
-          project-name: endform-playwright-tutorial
+          project-name: webinar-playwright-example
           set-url-env-var: BASE_URL
-          set-vercel-bypass-env-var: VERCEL_BYPASS_TOKEN
+          deployment-protection-bypass: false
 
       - name: Run Playwright tests
         run: pnpm exec playwright test

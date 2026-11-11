@@ -149,3 +149,5 @@ In your Vercel or Netlify project settings (or during deployment), add the neces
 2. `DATABASE_URL`: Leave unset to use the shared Durable Object proxy, set it to a local SQLite path, set it to your own proxy URL, or use a Turso connection string (`libsql://your-database.turso.io`)
 3. `DATABASE_AUTH_TOKEN`: Required if using Turso
 4. `AUTH_SECRET`: Optional in demo mode, but set this to a random string for any non-demo deployment. `openssl rand -base64 32` will generate one.
+
+<!-- vercel preview check -->

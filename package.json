@@ -47,10 +47,10 @@
 	"devDependencies": {
 		"@playwright/test": "1.65.0",
 		"@types/bun": "^1.4.4",
-		"endform": "^0.82.2",
+		"endform": "^0.83.1",
 		"oxfmt": "0.78.0",
 		"oxlint": "1.93.0",
-		"playwright-intent": "0.1.0",
+		"playwright-intent": "0.2.0",
 		"playwright-opentelemetry": "^0.15.0",
 		"tsx": "^4.23.15",
 		"typescript": "^7.0.2"

@@ -5,7 +5,14 @@ allowBuilds:
 
 minimumReleaseAgeExclude:
   - playwright-opentelemetry@0.15.0
-  - playwright-intent@0.1.0
+  - playwright-intent@0.2.0
+  - endform@0.83.1
+  - endform-darwin-arm64@0.83.1
+  - endform-darwin-x86@0.83.1
+  - endform-linux-arm64@0.83.1
+  - endform-linux-x86@0.83.1
+  - endform-win32-arm64@0.83.1
+  - endform-win32-x86@0.83.1
 
 onlyBuiltDependencies:
   - better-sqlite3

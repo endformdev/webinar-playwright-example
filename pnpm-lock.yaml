@@ -255,8 +255,8 @@ importers:
         specifier: ^1.4.4
         version: 1.4.4
       endform:
-        specifier: ^0.82.2
-        version: 0.82.2
+        specifier: ^0.83.1
+        version: 0.83.1
       oxfmt:
         specifier: 0.78.0
         version: 0.78.0
@@ -264,8 +264,8 @@ importers:
         specifier: 1.93.0
         version: 1.93.0
       playwright-intent:
-        specifier: 0.1.0
-        version: 0.1.0(@playwright/test@1.65.0)(zod@4.6.7)
+        specifier: 0.2.0
+        version: 0.2.0(@playwright/test@1.65.0)(zod@4.6.7)
       playwright-opentelemetry:
         specifier: ^0.15.0
         version: 0.15.0(@playwright/test@1.65.0)
@@ -2367,38 +2367,38 @@ packages:
       sqlite3:
         optional: true
 
-  endform-darwin-arm64@0.82.2:
-    resolution: {integrity: sha512-0fkXv1+SgaxGPqRLhxFG3wlF5hRZypVeLuEgIecoUTOZFsjGH3LST4Ali2MbHEVfM2sfOONz28InXSDp5/iwCA==}
+  endform-darwin-arm64@0.83.1:
+    resolution: {integrity: sha512-OyySGatJvUde8IpeFZ9OzloiaHqyhMYTBfdzh9Yj9yKj5FaoplVyiQbdSwgV8d1OLEBJsiuW0FSSqZ2Q7FvvYg==}
     cpu: [arm64]
     os: [darwin]
 
-  endform-darwin-x86@0.82.2:
-    resolution: {integrity: sha512-vI/T+2lpx5O4nIiHMPykD99lnnT1M+XNfnbj0EZ/bGNrshGjKZCn82ajAgFLUh0QoVqxpfN7i/tuaJKFBQPnnw==}
+  endform-darwin-x86@0.83.1:
+    resolution: {integrity: sha512-jL33tC9Ijk7g4p6VF/tAlGADCLq5LPelpyUrfrFbPT4P1PYY8njJZmoFQ8rI4Lyx2sRZb6bWDoxrXp+Wp0bbVw==}
     cpu: [x64]
     os: [darwin]
 
-  endform-linux-arm64@0.82.2:
-    resolution: {integrity: sha512-hMYqfYsTlNCiOfF2uZETrBnvf1vpQsahVX7w2uXWlAMeEt6wUabYaw3GSS8De2CfnqlrY/qae/e+rgT82q63Kg==}
+  endform-linux-arm64@0.83.1:
+    resolution: {integrity: sha512-2RvjOVCnfax9t75fF1bQJH5I6Vy3Ym6P3+rAbBnDi6LqfwSEUrujjsKQCttbPT+ZX0zFGmwau7AxBY/GXh4oIA==}
     cpu: [arm64]
     os: [linux]
 
-  endform-linux-x86@0.82.2:
-    resolution: {integrity: sha512-eCy+KXy4YY3q9sLP+T2yWwUXyHplDLFe/OE4ch89DJCCGMeNli14vedUo7Niz4yKK/EZ3cjCbo18woml6HTjSA==}
+  endform-linux-x86@0.83.1:
+    resolution: {integrity: sha512-ORoU6XeCZ7wPaXRe0+5evo76igMeOmDKj60wp0sgeEvGGXloaM4YYUMnlyaUdHWVZv1nqoQtlzueYBGwinUf5A==}
     cpu: [x64]
     os: [linux]
 
-  endform-win32-arm64@0.82.2:
-    resolution: {integrity: sha512-lVS5quYz/eezvunD/qLbqv3lflkom28h1jzAKfRrJtdJ2fYM4nLjTPn02G8xa02M7G3Jt5jDW7hxFUiJezgLpw==}
+  endform-win32-arm64@0.83.1:
+    resolution: {integrity: sha512-iwkIrqdapBmlDZLzUq5Lart80sgg6ZQJWGKRPuYJNtb4TTiJcUF3RvVreG3rxDKALu1Zaj1JhrrWqSjfkx5OOg==}
     cpu: [arm64]
     os: [win32]
 
-  endform-win32-x86@0.82.2:
-    resolution: {integrity: sha512-8KrOOzzx/N6QT/vs/6L1WDP9CafvwzDuKS4XpCIDhLH6QedZF+jECvtyqhMKypNVelkxBJrJw6cZcN19DQbjMw==}
+  endform-win32-x86@0.83.1:
+    resolution: {integrity: sha512-VdSq68oHfaxq3zPbhE7GzELpm3eU7vVyURyvAw4mleikAwm5KroUt8mIO4nPIiYv8jcFmEv3V0LcQecy1qi8pA==}
     cpu: [x64]
     os: [win32]
 
-  endform@0.82.2:
-    resolution: {integrity: sha512-oHeJ9c68IGLA3RFnuf1Tg92jJtajvi09I8UZBMymcptPdGVdmPSMeYub3w07liCtF43g4w2lnoiVgvMGDfD9Yg==}
+  endform@0.83.1:
+    resolution: {integrity: sha512-50Ia5kxDwF/nBTE+1Xkvqr35y6tJ/DDLHXSDG+4MA3KQGTVrbaGtVKtNFAMSpIWWBYzRIcTpSjXzVOSUHovhxg==}
     hasBin: true
 
   enhanced-resolve@5.26.1:
@@ -2617,8 +2617,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  playwright-intent@0.1.0:
-    resolution: {integrity: sha512-GtGRwyJOVGqRAEHFwQyHzIs24iCioI8CYjTaPbnOXAdrDsX4ycGkVQAsiZroet6ul44/jZ0GtQXaKfp1Q1OxiA==}
+  playwright-intent@0.2.0:
+    resolution: {integrity: sha512-LGSqM7JGQOeHUQFdWuhI5m0qTi121ccziuIM47EwNHe9FzI3UdSDEJAHTgjCOsBlLyY8dMRhgfeR29aPLI1M9g==}
     engines: {node: '>=24.0.0'}
     peerDependencies:
       '@playwright/test': '>=1.60.0'
@@ -4430,32 +4430,32 @@ snapshots:
       '@opentelemetry/api': 1.9.1
       bun-types: 1.4.4
 
-  endform-darwin-arm64@0.82.2:
+  endform-darwin-arm64@0.83.1:
     optional: true
 
-  endform-darwin-x86@0.82.2:
+  endform-darwin-x86@0.83.1:
     optional: true
 
-  endform-linux-arm64@0.82.2:
+  endform-linux-arm64@0.83.1:
     optional: true
 
-  endform-linux-x86@0.82.2:
+  endform-linux-x86@0.83.1:
     optional: true
 
-  endform-win32-arm64@0.82.2:
+  endform-win32-arm64@0.83.1:
     optional: true
 
-  endform-win32-x86@0.82.2:
+  endform-win32-x86@0.83.1:
     optional: true
 
-  endform@0.82.2:
+  endform@0.83.1:
     optionalDependencies:
-      endform-darwin-arm64: 0.82.2
-      endform-darwin-x86: 0.82.2
-      endform-linux-arm64: 0.82.2
-      endform-linux-x86: 0.82.2
-      endform-win32-arm64: 0.82.2
-      endform-win32-x86: 0.82.2
+      endform-darwin-arm64: 0.83.1
+      endform-darwin-x86: 0.83.1
+      endform-linux-arm64: 0.83.1
+      endform-linux-x86: 0.83.1
+      endform-win32-arm64: 0.83.1
+      endform-win32-x86: 0.83.1
 
   enhanced-resolve@5.26.1:
     dependencies:
@@ -4708,7 +4708,7 @@ snapshots:
 
   playwright-core@1.65.0: {}
 
-  playwright-intent@0.1.0(@playwright/test@1.65.0)(zod@4.6.7):
+  playwright-intent@0.2.0(@playwright/test@1.65.0)(zod@4.6.7):
     dependencies:
       '@playwright/test': 1.65.0
       ai: 7.0.168(zod@4.6.7)

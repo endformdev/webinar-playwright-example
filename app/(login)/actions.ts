@@ -339,13 +339,17 @@ export const inviteTeamMember = validatedActionWithUser(
 			})
 			.returning();
 
-		// Email the invitee and log the invite once the response has been sent,
-		// so inviting feels instant.
-		const teamId = userWithTeam.teamId;
-		after(async () => {
-			await sendInvitationEmail(email, role);
-			await logActivity(teamId, user.id, ActivityType.INVITE_TEAM_MEMBER);
-		});
+		// Log the invite before responding, so the activity log is up to date as
+		// soon as the invite form says it was sent.
+		await logActivity(
+			userWithTeam.teamId,
+			user.id,
+			ActivityType.INVITE_TEAM_MEMBER,
+		);
+
+		// Email the invitee once the response has been sent, so a slow email
+		// provider doesn't slow down inviting.
+		after(() => sendInvitationEmail(email, role));
 
 		return { success: "Invitation sent successfully", id: invitation[0].id };
 	},

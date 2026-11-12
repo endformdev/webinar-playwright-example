@@ -51,4 +51,3 @@ node_modules/
 .playwright-mcp/
 
 .auth/
-/test-results-intent/

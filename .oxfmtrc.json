@@ -18,8 +18,7 @@
 		"app/globals.css",
 		"**/playwright-report",
 		"**/test-results",
-		"**/.intent",
-		"**/test-results-intent"
+		"**/.intent"
 	],
 	"overrides": [
 		{

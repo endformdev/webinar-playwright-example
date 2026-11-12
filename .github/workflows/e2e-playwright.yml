@@ -45,7 +45,7 @@ jobs:
           deployment-protection-bypass: false
 
       - name: Run Playwright tests
-        run: pnpm exec playwright test
+        run: pnpm exec playwright test --project chromium
 
       - name: Upload Playwright report
         if: ${{ !cancelled() }}

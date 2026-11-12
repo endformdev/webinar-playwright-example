@@ -1,4 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
+import type { IntentOptions, IntentUseOptions } from "playwright-intent";
+import { allow, commit, fileStore } from "playwright-intent/file-store";
 import type { PlaywrightOpentelemetryUseOptions } from "playwright-opentelemetry/fixture";
 
 /**
@@ -17,10 +19,20 @@ const playwrightOtelEnabled = Boolean(
 	process.env.OTEL_EXPORTER_OTLP_ENDPOINT,
 );
 
+// Intent steps live in .intent and are committed like any other code. Locally
+// the agent writes changed steps to disk for you to review. On a pull request
+// it commits them to the branch, so the change shows up in the diff.
+const intent = {
+	store: fileStore({ updates: { local: allow(), ci: commit() } }),
+	model: "openai/gpt-6-luna",
+} satisfies IntentOptions;
+
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig<PlaywrightOpentelemetryUseOptions>({
+export default defineConfig<
+	PlaywrightOpentelemetryUseOptions & IntentUseOptions
+>({
 	testDir: "./tests",
 	globalSetup: "./global-setup.ts",
 	globalTeardown: "./global-teardown.ts",
@@ -35,6 +47,7 @@ export default defineConfig<PlaywrightOpentelemetryUseOptions>({
 	/* Reporter to use. See https://playwright.dev/docs/test-reporters */
 	reporter: [
 		["html", { open: "never" }],
+		["./tests-intent/ordered-reporter.ts", intent],
 		...(playwrightOtelEnabled
 			? [["playwright-opentelemetry/reporter"] as const]
 			: []),
@@ -85,6 +98,19 @@ export default defineConfig<PlaywrightOpentelemetryUseOptions>({
 			use: {
 				storageState: ".auth/api-user.json",
 				...devices["Desktop Chrome"],
+			},
+		},
+		{
+			name: "intent",
+			testDir: "./tests-intent",
+			timeout: 120_000,
+			// A repaired step can leave the page in a changed state, so the retry
+			// replays the test from the start with the new step.
+			retries: 2,
+			use: {
+				...devices["Desktop Chrome"],
+				trace: "on",
+				intent,
 			},
 		},
 		{

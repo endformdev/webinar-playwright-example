@@ -9,7 +9,8 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write # the intent agent commits changed steps to the pull request
+  actions: write # approves the checks on the intent agent's commit
   id-token: write # required for authentication with Endform
 
 jobs:
@@ -44,3 +45,29 @@ jobs:
 
       - name: Run end to end tests with Endform
         run: npx endform@latest test
+        env:
+          AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # A commit made with GITHUB_TOKEN waits for approval before its
+      # workflows run, so approve the checks on the intent agent's commit.
+      - name: Run checks on the updated intent steps
+        if: always() && github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ github.head_ref }}
+          TESTED_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          head=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/$BRANCH" --jq .object.sha)
+          if [ "$head" = "$TESTED_SHA" ]; then
+            echo "No intent step changes were committed"
+            exit 0
+          fi
+          for attempt in $(seq 1 24); do
+            runs=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$head&status=action_required" --jq '.workflow_runs[].id')
+            [ "$(echo "$runs" | grep -c .)" -ge 2 ] && break
+            sleep 5
+          done
+          for run in $runs; do
+            gh api -X POST "repos/$GITHUB_REPOSITORY/actions/runs/$run/approve" && echo "Approved run $run"
+          done

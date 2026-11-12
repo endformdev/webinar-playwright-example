@@ -47,7 +47,7 @@ export default defineConfig<
 	/* Reporter to use. See https://playwright.dev/docs/test-reporters */
 	reporter: [
 		["html", { open: "never" }],
-		["./tests-intent/ordered-reporter.ts", intent],
+		["playwright-intent/reporter", intent],
 		...(playwrightOtelEnabled
 			? [["playwright-opentelemetry/reporter"] as const]
 			: []),
